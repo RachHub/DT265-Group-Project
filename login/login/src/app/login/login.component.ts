@@ -3,10 +3,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
+import { AlertService } from '../_services/alert.service';
+import {AuthenticationService} from '../_services/authentication.service';
 
-import {AuthenticationService} from '../services/authentication.service';
-
-@Component({ templateUrl: 'login.component.html' })
+@Component({ templateUrl: 'login.component.html', styleUrls: ['./login.component.css'] })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -18,16 +18,17 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
+    private alertService: AlertService
   ) {
     // redirect to home if already logged in
     //if (this.authenticationService.currentUserValue) {
-      //this.router.navigate(['/']);
-   // }
+    //this.router.navigate(['/']);
+    // }
   }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
 
@@ -41,6 +42,8 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+    // reset alerts on submit
+    this.alertService.clear();
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -48,14 +51,17 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
+    this.authenticationService.login(this.f.email.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);
         },
         error => {
+          this.alertService.error(error);
           this.loading = false;
         });
+    //console.log(JSON.parse(localStorage.getItem('currentUser')));
+    console.log(JSON.parse(localStorage.getItem('currentUser')).email);
   }
 }
