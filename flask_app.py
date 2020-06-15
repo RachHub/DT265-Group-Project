@@ -131,5 +131,37 @@ def authent():
             connection.close()
             print("PostgreSQL connection is now closed")
 
+# Get recipes endpoint
+@app.route('/seasonal_recipes/api/v1.0/<vegetable>', methods=['GET'])
+
+def get_recipes(vegetable):
+    
+    connection = psycopg2.connect(
+            user = "tuqurqnlmabgfb",
+            password = "f22e3198e9b9a293bfbdef4877290eb420dc2ced9133d1ce303b375f0989a398",
+            host = "ec2-54-246-85-151.eu-west-1.compute.amazonaws.com",
+            port = "5432",
+            database = "d104oreqrestf1",
+            sslmode="require"
+    )
+        
+    # Get recipe data
+    cursor = connection.cursor()
+    # Get recipes where the title contains the vegetable name from the request
+    cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%" + vegetable + "%'")       
+    row = cursor.fetchall()
+    title = row[0][1]
+    ingredients = row[0][2]
+    method = row[0][3]
+       
+    return jsonify({
+        'vegetable': vegetable,
+        'title': title,
+        'ingredients': ingredients,
+        'method': method
+        }), 200
+                
+    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
