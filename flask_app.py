@@ -1,6 +1,6 @@
 # Flask application to retrieve data and to manage user login and registration
-from flask import Flask
-from flask_jsonpify import jsonify
+from flask import Flask, jsonify
+#from flask_jsonpify import jsonify
 from flask import abort
 from flask import request
 import psycopg2
