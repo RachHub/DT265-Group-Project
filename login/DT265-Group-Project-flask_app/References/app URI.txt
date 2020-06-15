@@ -1,1 +1,0 @@
-The app URI is: https://seasonal-recipes.herokuapp.com/
