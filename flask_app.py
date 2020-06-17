@@ -4,6 +4,7 @@ from flask import Flask, jsonify
 from flask import abort
 from flask import request
 import psycopg2
+from flask_cors import CORS, cross_origin
 from psycopg2 import Error
 from sqlalchemy import exc
 from psycopg2 import sql
@@ -16,6 +17,7 @@ import base64
 
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 
 # Set secret key.
 app.config['JWT_SECRET_KEY'] = 'jwt-secret-string'
@@ -90,13 +92,17 @@ def authent():
             sslmode="require"
     )
     try:
+        print("Got to try in auth")
         client_request = request.get_json()
-        username = client_request['username']  
+        username = client_request['username']
+        print(username)
         client_pw = client_request['password']
+        print(client_pw)
         # Get user data
         cursor = connection.cursor()
         cursor.execute("SELECT * from users WHERE username = %s", (username,))       
         row = cursor.fetchall()
+        print(row)
         
         # Create variable with hash for user that is stored in db        
         db_hash = row[0][2] 

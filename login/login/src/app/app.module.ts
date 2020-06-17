@@ -11,6 +11,7 @@ import {AuthenticationService} from './_services/authentication.service';
 import { JwtInterceptor} from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AlertComponent } from './_components/alert.component';
+import { SelectIngredientComponent } from './select-ingredient/select-ingredient.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AlertComponent } from './_components/alert.component';
     AppComponent,
     LoginComponent,
     AlertComponent,
+    SelectIngredientComponent,
   ],
   imports: [
     BrowserModule,
