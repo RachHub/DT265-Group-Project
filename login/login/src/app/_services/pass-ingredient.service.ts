@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 export class PassIngredientService {
 
   constructor(private http: HttpClient) { }
-  projectUrl = 'http://127.0.0.1:5000//seasonal_recipes/api/v1.0/';
+  projectUrl = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/';
 
   searchingredient(ingredient) {
     let params = new HttpParams();
