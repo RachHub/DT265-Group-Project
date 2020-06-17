@@ -13,11 +13,12 @@ export class PassIngredientService {
   projectUrl = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/';
 
   searchingredient(ingredient) {
-    let params = new HttpParams();
-    params = params.append('vegetable', (ingredient));
+    //let params = new HttpParams();
+    //params = params.append('vegetable', (ingredient));
 
 
-    return this.http.get<Recipes>(this.projectUrl, {params});
+    //return this.http.get<Recipes>(this.projectUrl, {params});
+    return this.http.get<Recipes>(this.projectUrl + ingredient);
       };
   }
 

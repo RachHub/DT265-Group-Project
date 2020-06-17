@@ -48,6 +48,8 @@ export class SelectIngredientComponent implements OnInit {
         return;
       }
 
+      let searchItem = this.f.ingredientselection.value
+
       this.loading = true;
       this.passingredientService.searchingredient(this.f.ingredientselection.value)
         .pipe(first())
