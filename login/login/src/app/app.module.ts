@@ -12,6 +12,10 @@ import { JwtInterceptor} from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AlertComponent } from './_components/alert.component';
 import { SelectIngredientComponent } from './select-ingredient/select-ingredient.component';
+import { DisplayRecipesComponent } from './display-recipes/display-recipes.component';
+
+
+
 
 
 @NgModule({
@@ -20,6 +24,10 @@ import { SelectIngredientComponent } from './select-ingredient/select-ingredient
     LoginComponent,
     AlertComponent,
     SelectIngredientComponent,
+    DisplayRecipesComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
