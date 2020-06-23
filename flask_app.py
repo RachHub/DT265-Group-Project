@@ -154,19 +154,26 @@ def get_recipes(vegetable):
     # Get recipe data
     cursor = connection.cursor()
     # Get recipes where the title contains the vegetable name from the request
-    cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%" + vegetable + "%'")       
-    row = cursor.fetchall()
-    title = row[0][1]
-    ingredients = row[0][2]
-    method = row[0][3]
-       
-    return jsonify({
+    cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%" + vegetable + "%'")    
+    recipes_list = []  
+    data = cursor.fetchall()
+
+    for row in data:
+        title = row[1]
+        ingredients = row[2]
+        method = row[3]
+        recipe = {
         'vegetable': vegetable,
         'title': title,
         'ingredients': ingredients,
         'method': method
-        }), 200
-                
+        }
+        recipes_list.append(recipe)
+    
+
+    return jsonify(recipes_list), 200
+
+       
     
 
 if __name__ == '__main__':
