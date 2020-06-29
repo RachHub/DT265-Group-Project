@@ -6,15 +6,19 @@
 
 .mt-5 {
     font-size: 3em;
+    color: black;
+    
 }
 
 .lead {
-    font-size: 1.5em;
-}
+    font-size: 1.8em;
+    font-weight: 600;
+    color: black;
+}   
 .col-lg-12 {
     width: 1500px;
     height: 260px;
-    background-image:url("../img/vegetables.jpg");
-    color: white;
+    background-image:url("../img/vegetables.png");
+    
 }
 
