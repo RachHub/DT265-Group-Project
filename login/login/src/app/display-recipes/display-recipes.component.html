@@ -1,12 +1,59 @@
-<ul>
-    <li [className]="'recipe_li'" *ngFor="let recipe of recipes">
-        <div><h6>Title:</h6> {{ recipe['title'] }}</div>
-        <div><h6>Ingredients:</h6> {{ recipe['ingredients'] }}</div>
-        <div><h6>Method:</h6> {{ recipe['method'] }}</div>
-        <br>
-        <br>
-    </li>
-  </ul>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Find Market
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Reports</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Favourites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        
+        <h1 class="mt-5 text-center" >Seasonal Recipes</h1>
+        <p class="lead text-center">Cook seasonally with fresh Irish vegetables to benefit the environment and your taste buds.</p>
+        
+      </div>
+      <ul>
+        <li [className]="'recipe_li'" *ngFor="let recipe of recipes">
+            <div><h6>Title:</h6> {{ recipe['title'] }}</div>
+            <div><h6>Ingredients:</h6> {{ recipe['ingredients'] }}</div>
+            <div><h6>Method:</h6> {{ recipe['method'] }}</div>
+            <br>
+            <br>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.slim.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+
 
 
 

@@ -1,16 +1,11 @@
 <h2>Select Your Ingredient</h2>
 <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label>Ingredients</label>
+    
     <div class="form-control">
-      <label class="radio-inline" style="margin-right: 20px">
-        <input type="radio" value="aubergine"  formControlName="ingredientselection">
-        Aubergine
-      </label>
-      <label class="radio-inline" style="margin-right: 20px">
-        <input type="radio" value="pumpkin"  formControlName="ingredientselection">
-        Pumpkin
-      </label>
+      <label class="text" style="margin-right: 20px">Enter ingredient:</label>
+        <input type="text" value="Ingredient"  formControlName="ingredientselection">
+        
     </div>
   </div>
   <div class="form-group">

@@ -14,11 +14,7 @@ export class PassIngredientService {
 
 
   searchingredient(ingredient) {
-    //let params = new HttpParams();
-    //params = params.append('vegetable', (ingredient));
-
-
-    //return this.http.get<Recipes>(this.projectUrl, {params});
+    
     return this.http.get<Recipes[]>(this.projectUrl + ingredient)
       };
   }
