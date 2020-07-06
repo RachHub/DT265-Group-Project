@@ -37,7 +37,8 @@
       </div>
       <ul>
         <li [className]="'recipe_li'" *ngFor="let recipe of recipes">
-            <div><h6>Title:</h6> {{ recipe['title'] }}</div>
+            <div><h2> {{ recipe['title'] }}</h2></div>
+            <div> <img [src]="recipe['image_url']"></div>
             <div><h6>Ingredients:</h6> {{ recipe['ingredients'] }}</div>
             <div><h6>Method:</h6> {{ recipe['method'] }}</div>
             <br>

@@ -166,9 +166,14 @@ def get_recipes(vegetable):
         'vegetable': vegetable,
         'title': title,
         'ingredients': ingredients,
-        'method': method
+        'method': method,
+        'image_url': ''
         }
         recipes_list.append(recipe)
+
+    for recipe in recipes_list:
+        cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+        recipe['image_url'] = cursor.fetchall()
     
 
     return jsonify(recipes_list), 200
