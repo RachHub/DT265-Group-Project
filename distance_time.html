@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sushi Finder</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+      height: 100%;
+      background-color: grey;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* TODO: Step 4A1: Make a generic sidebar */
+  </style>
+</head>
+
+<body>
+  <!-- TODO: Step 4A2: Add a generic sidebar -->
+
+  <!-- Map appears here -->
+  <div id="map"></div>
+
+  <!-- TODO: Step 1B, Add a map -->
+<script>
+    /* Note: This example requires that you consent to location sharing when
+     * prompted by your browser. If you see the error "Geolocation permission
+     * denied.", it means you probably did not give permission for the browser * to locate you. */
+
+    /* TODO: Step 2, Geolocate your user
+     * Replace the code from here to the END TODO comment with new code from
+     * codelab instructions. */
+    let pos;
+    let map;
+    function initMap() {
+        // Set the default location and initialize all variables
+        pos = {lat: -33.857, lng: 151.213};
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: pos,
+            zoom: 15
+        });
+    }
+    /* END TODO: Step 2, Geolocate your user */
+</script>
+
+<!-- TODO: Step 1C, Get an API key -->
+<!-- TODO: Step 3A, Load the Places Library -->
+<script a
+
+</body>
+
+</html>
