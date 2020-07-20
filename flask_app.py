@@ -173,8 +173,44 @@ def get_recipes(vegetable):
 
     return jsonify(recipes_list), 200
 
-       
-    
+
+# Get favorites for report
+@app.route('/seasonal_recipes/api/v1.0/favorites', methods=['GET'])
+def get_favorites():
+    connection = psycopg2.connect(
+        user="tuqurqnlmabgfb",
+        password="f22e3198e9b9a293bfbdef4877290eb420dc2ced9133d1ce303b375f0989a398",
+        host="ec2-54-246-85-151.eu-west-1.compute.amazonaws.com",
+        port="5432",
+        database="d104oreqrestf1",
+        sslmode="require"
+    )
+
+    # Get favorites data
+    cursor = connection.cursor()
+    # Get favorites by grouping and totalling entries in the favorites table
+    cursor.execute("SELECT recipe_id, COUNT(*) FROM favourites GROUP BY recipe_id LIMIT 5")
+    favourites_list = []
+    data = cursor.fetchall()
+    print(data)
+
+    for row in data:
+        cursor = connection.cursor()
+        cursor.execute("SELECT title FROM recipes WHERE recipe_id=%s", (row[0],))
+        title = cursor.fetchone()
+        count = row[1]
+        #ingredients = row[2]
+        #method = row[3]
+        favorite = {
+            'title': title,
+            'count': count
+            #'ingredients': ingredients,
+            #'method': method
+        }
+        favourites_list.append(favorite)
+
+    return jsonify(favourites_list), 200
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

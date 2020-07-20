@@ -14,8 +14,7 @@ export class PassIngredientService {
 
 
   searchingredient(ingredient) {
-    
-    return this.http.get<Recipes[]>(this.projectUrl + ingredient)
-      };
+    return this.http.get<Recipes[]>(this.projectUrl + ingredient);
+      }
   }
 
