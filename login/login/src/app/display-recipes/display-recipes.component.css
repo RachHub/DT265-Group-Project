@@ -1,7 +1,35 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+.recipe-list {
+    margin: 0 auto;
+    text-align: center;
+    
+    padding-left: 0;
+    
+   
+}
 
 .recipe_li {
+    display: inline-block;
+    vertical-align: top;
     list-style-type: none;
+    max-width: 30%;    
+    max-height: 300px;
+    
+}
+
+ul {
+    margin:0;
+    padding: 0;
+}
+
+.recipe-link {
+    color: black;
 }
 
 .mt-5 {
@@ -10,15 +38,32 @@
     
 }
 
+
+
+h4 {
+    position: absolute;
+    max-width: 200px;
+}
+
 .lead {
     font-size: 1.8em;
     font-weight: 600;
     color: black;
-}   
+} 
+
+.row {
+    text-align: center;
+    width: 100%;
+    
+    
+    padding:0;
+}
 .col-lg-12 {
-    width: 1500px;
+    
     height: 260px;
     background-image:url("../img/vegetables.png");
+    margin:0;
+    padding:0;
     
 }
 

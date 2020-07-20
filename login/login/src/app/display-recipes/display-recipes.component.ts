@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import { SelectIngredientComponent} from "../select-ingredient/select-ingredient.component";
+import { SelectMonthComponent} from "../select-month/select-month.component";
 import {first} from "rxjs/operators";
-import {PassIngredientService} from "../_services/pass-ingredient.service";
+import {PassMonthService} from "../_services/pass-month.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Recipes} from "../recipes";
 
@@ -13,12 +13,12 @@ import {Recipes} from "../recipes";
 export class DisplayRecipesComponent implements OnInit {
   recipes: Recipes[];
 
-  constructor(private passingredientService: PassIngredientService,
+  constructor(private passmonthService: PassMonthService,
               private router: Router,
               private route: ActivatedRoute,) { }
 
   ngOnInit() {
-    this.passingredientService.searchingredient(this.route.snapshot.paramMap.get('vegetable'))
+    this.passmonthService.searchmonth(this.route.snapshot.paramMap.get('month'))
       .pipe(first())
       .subscribe(
         data => {

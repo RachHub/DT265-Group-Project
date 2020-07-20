@@ -4,16 +4,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import {AuthenticationService} from "../_services/authentication.service";
 import {AlertService} from "../_services/alert.service";
-import { PassIngredientService} from '../_services/pass-ingredient.service';
+import { PassMonthService} from '../_services/pass-month.service';
 import {Recipes} from "../recipes";
 
 @Component({
-  selector: 'app-select-ingredient',
-  templateUrl: './select-ingredient.component.html',
-  styleUrls: ['./select-ingredient.component.css'],
+  selector: 'app-select-month',
+  templateUrl: './select-month.component.html',
+  styleUrls: ['./select-month.component.css'],
 
 })
-export class SelectIngredientComponent implements OnInit {
+export class SelectMonthComponent implements OnInit {
   selectForm: FormGroup;
   loading = false;
   issubmitted = false;
@@ -25,7 +25,7 @@ export class SelectIngredientComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private passingredientService: PassIngredientService,
+    private passmonthService: PassMonthService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {
@@ -35,7 +35,7 @@ export class SelectIngredientComponent implements OnInit {
 
   ngOnInit() {
     this.selectForm = this.formBuilder.group({
-      ingredientselection: ['', Validators.required]
+      monthselection: ['', Validators.required]
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/recipes/';
@@ -60,10 +60,10 @@ export class SelectIngredientComponent implements OnInit {
 
     }
 
-    let searchItem = this.f.ingredientselection.value
+    let searchItem = this.f.monthselection.value
 
     this.loading = true;
-    this.passingredientService.searchingredient(this.f.ingredientselection.value)
+    this.passmonthService.searchmonth(this.f.monthselection.value)
       .pipe(first())
       .subscribe(
         data => {

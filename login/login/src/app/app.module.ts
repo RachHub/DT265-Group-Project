@@ -11,7 +11,7 @@ import {AuthenticationService} from './_services/authentication.service';
 import { JwtInterceptor} from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AlertComponent } from './_components/alert.component';
-import { SelectIngredientComponent } from './select-ingredient/select-ingredient.component';
+import { SelectMonthComponent } from './select-month/select-month.component';
 import { DisplayRecipesComponent } from './display-recipes/display-recipes.component';
 
 
@@ -23,7 +23,7 @@ import { DisplayRecipesComponent } from './display-recipes/display-recipes.compo
     AppComponent,
     LoginComponent,
     AlertComponent,
-    SelectIngredientComponent,
+    SelectMonthComponent,
     DisplayRecipesComponent,
 
 

@@ -1,17 +1,17 @@
-<h2>Select Your Ingredient</h2>
+<h2>Select Your Month</h2>
 <form [formGroup]="selectForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     
     <div class="form-control">
-      <label class="text" style="margin-right: 20px">Enter ingredient:</label>
-        <input type="text" value="Ingredient"  formControlName="ingredientselection">
+      <label class="text" style="margin-right: 20px">Enter month:</label>
+        <input type="text" value="Month"  formControlName="monthselection">
         
     </div>
   </div>
   <div class="form-group">
     <button [disabled]="loading" class="btn btn-primary">
       <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-      Submit Ingredient
+      Submit Month
     </button>
   </div>
 

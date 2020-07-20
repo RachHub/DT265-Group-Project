@@ -7,15 +7,15 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class PassIngredientService {
+export class PassMonthService {
 
   constructor(private http: HttpClient) { }
   projectUrl = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/';
 
 
-  searchingredient(ingredient) {
+  searchmonth(month) {
     
-    return this.http.get<Recipes[]>(this.projectUrl + ingredient)
+    return this.http.get<Recipes[]>(this.projectUrl + month)
       };
   }
 
