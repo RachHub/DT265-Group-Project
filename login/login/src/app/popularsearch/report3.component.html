@@ -1,0 +1,10 @@
+<div class="container">
+  <h4 class="mt-5 text-center" >Most Searched Ingredients</h4>
+  <div style="display: block">
+    <canvas width="400" height="400" baseChart
+          [data]=this.popularsearchData
+          [labels]=this.popularsearchLabels
+          [chartType]="pieChartType"
+            [colors]="colors">
+    </canvas>
+</div>

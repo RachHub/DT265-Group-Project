@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {first} from 'rxjs/operators';
 import {Top5Service} from '../_services/top5.service';
 import {ActivatedRoute, Router} from "@angular/router";
-import {PassIngredientService} from "../_services/pass-ingredient.service";
+
 
 @Component({
   selector: 'app-displaytop5',

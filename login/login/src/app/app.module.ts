@@ -13,11 +13,10 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AlertComponent } from './_components/alert.component';
 import { SelectMonthComponent } from './select-month/select-month.component';
 import { DisplayRecipesComponent } from './display-recipes/display-recipes.component';
-import { Report1Component } from './report1/report1.component';
+import { Report1Component } from './reports/report1.component';
 import { ReportoneService} from './_services/reportone.service';
 import { ChartsModule} from 'ng2-charts';
-import { Report2Component } from './report2/report2.component';
-import { Report3Component } from './report3/report3.component';
+import { Report3Component } from './popularsearch/report3.component';
 import { Report4Component } from './report4/report4.component';
 import { Displaytop5Component } from './displaytop5/displaytop5.component';
 
@@ -30,7 +29,6 @@ import { Displaytop5Component } from './displaytop5/displaytop5.component';
     SelectMonthComponent,
     DisplayRecipesComponent,
     Report1Component,
-    Report2Component,
     Report3Component,
     Report4Component,
     Displaytop5Component,
