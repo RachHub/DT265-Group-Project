@@ -18,6 +18,12 @@ import { RecipeComponent } from './recipe/recipe.component';
 
 
 
+import { Report1Component } from './reports/report1.component';
+import { ReportoneService} from './_services/reportone.service';
+import { ChartsModule} from 'ng2-charts';
+import { Report3Component } from './popularsearch/report3.component';
+import { Report4Component } from './report4/report4.component';
+import { Displaytop5Component } from './displaytop5/displaytop5.component';
 
 
 @NgModule({
@@ -28,6 +34,10 @@ import { RecipeComponent } from './recipe/recipe.component';
     SelectMonthComponent,
     DisplayRecipesComponent,
     RecipeComponent,
+    Report1Component,
+    Report3Component,
+    Report4Component,
+    Displaytop5Component,
 
 
 
@@ -37,9 +47,10 @@ import { RecipeComponent } from './recipe/recipe.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
-  providers: [ AuthenticationService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  providers: [ AuthenticationService, ReportoneService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, ],
   bootstrap: [AppComponent]
 })
