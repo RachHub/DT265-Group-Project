@@ -14,6 +14,8 @@ import { AlertComponent } from './_components/alert.component';
 import { SelectMonthComponent } from './select-month/select-month.component';
 import { DisplayRecipesComponent } from './display-recipes/display-recipes.component';
 
+import { RecipeComponent } from './recipe/recipe.component';
+
 
 
 
@@ -25,6 +27,7 @@ import { DisplayRecipesComponent } from './display-recipes/display-recipes.compo
     AlertComponent,
     SelectMonthComponent,
     DisplayRecipesComponent,
+    RecipeComponent,
 
 
 

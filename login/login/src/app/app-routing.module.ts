@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {SelectMonthComponent} from "./select-month/select-month.component";
 import {DisplayRecipesComponent} from "./display-recipes/display-recipes.component";
+import {RecipeComponent} from './recipe/recipe.component';
 
 
 
@@ -11,7 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'select', component: SelectMonthComponent },
   { path: 'recipes/:month', component: DisplayRecipesComponent },
-
+  { path: 'recipe', component: RecipeComponent },
 ];
 
 @NgModule({
