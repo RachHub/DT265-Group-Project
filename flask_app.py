@@ -183,7 +183,9 @@ def get_recipes(vegetable):
     print(found)
 
     if not found:
-        cursor.execute("INSERT INTO searchitems (title, count) VALUES (%s, 1)", vegetable)
+        postgres_insert_query = """ INSERT INTO searchitems (title, count) VALUES (%s,%s)"""
+        record_to_insert = (vegetable, 1)
+        cursor.execute(postgres_insert_query, record_to_insert)
 
     else:
         cursor.execute("UPDATE searchitems SET count = count + 1 WHERE title LIKE '%" + vegetable + "%' ")

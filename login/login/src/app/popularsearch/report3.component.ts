@@ -13,21 +13,22 @@ import {Label} from "ng2-charts";
 })
 export class Report3Component implements OnInit {
 
-  private colors = [
+  //private colors = [
     //{ backgroundColor:"red" },
-    {
-      backgroundColor:[
-        "green",
-        "red",
-        "yellow",
-        ]
-    }
-  ];
+    //{
+      //backgroundColor:[
+        //"green",
+        //"red",
+       // "yellow",
+        //]
+   // }
+  //];
   popularsearchData: ChartDataSets[] = [
     {
       data: [],
     }
   ];
+  colors = [];
   popularsearchLabels: Label[] = [];
 
   searchitems: any[];
@@ -51,8 +52,14 @@ export class Report3Component implements OnInit {
         //error => {
           //this.alertService.error(error);
          // this.loading = false;
+
+    for (let i = 0; i < this.searchitems.length; i++) {
+      this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16));
+    }
+
+    }
   }
 
-}
+
 
 
