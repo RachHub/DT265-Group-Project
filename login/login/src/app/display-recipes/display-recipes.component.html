@@ -19,7 +19,10 @@
             <a class="nav-link" href="#">Favourites</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#">About</a>
+        </li>
+          <li class="nav-item">
+            <app-ingredient-search></app-ingredient-search>
           </li>
         </ul>
       </div>
@@ -30,12 +33,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12">
-        
+
         <h1 class="mt-5 text-center main-header" >Seasonal Recipes</h1>
         <p class="lead text-center">Cook seasonally with fresh Irish vegetables to benefit the environment and your taste buds.</p>
-
       </div>
-      
+
       <ul class="recipe-list">
         <li [className]="'recipe_li'" *ngFor="let recipe of recipes" >
             <br>
@@ -47,10 +49,10 @@
             <div>Ingredients: {{ recipe['ingredients'] }}</div>
             <div>Method: {{ recipe['method'] }}</div>
             -->
-            
+
         </li>
       </ul>
-      
+
     </div>
   </div>
 

@@ -24,6 +24,7 @@ import { ChartsModule} from 'ng2-charts';
 import { Report3Component } from './popularsearch/report3.component';
 import { Report4Component } from './report4/report4.component';
 import { Displaytop5Component } from './displaytop5/displaytop5.component';
+import { IngredientSearchComponent } from './ingredient-search/ingredient-search.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { Displaytop5Component } from './displaytop5/displaytop5.component';
     Report3Component,
     Report4Component,
     Displaytop5Component,
+    IngredientSearchComponent,
 
 
 

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PassMonthService } from './pass-month.service';
+import { PassSearchitemService } from './pass-searchitem.service';
 
 describe('PassMonthService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: PassMonthService = TestBed.get(PassMonthService);
+    const service: PassSearchitemService = TestBed.get(PassSearchitemService);
     expect(service).toBeTruthy();
   });
 });

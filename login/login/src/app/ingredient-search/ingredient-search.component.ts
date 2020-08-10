@@ -2,19 +2,19 @@ import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import {Recipes} from "../recipes";
+import {PassSearchitemService} from "../_services/pass-searchitem.service";
 import {AuthenticationService} from "../_services/authentication.service";
 import {AlertService} from "../_services/alert.service";
-import { PassSearchitemService} from '../_services/pass-searchitem.service';
-import {Recipes} from "../recipes";
+
 
 @Component({
-  selector: 'app-select-month',
-  templateUrl: './select-month.component.html',
-  styleUrls: ['./select-month.component.css'],
-
+  selector: 'app-ingredient-search',
+  templateUrl: './ingredient-search.component.html',
+  styleUrls: ['./ingredient-search.component.css']
 })
-export class SelectMonthComponent implements OnInit {
-  selectForm: FormGroup;
+export class IngredientSearchComponent implements OnInit {
+  selectIngredientForm: FormGroup;
   loading = false;
   issubmitted = false;
   returnUrl: string;
@@ -25,32 +25,29 @@ export class SelectMonthComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private passmonthService: PassSearchitemService,
+    private passsearchitemservice: PassSearchitemService,
     private authenticationService: AuthenticationService,
     private alertService: AlertService
   ) {
   }
 
-  headers = ['vegetable', 'title', 'ingredients', 'method'];
-
   ngOnInit() {
-    this.selectForm = this.formBuilder.group({
-      monthselection: ['', Validators.required]
+    this.selectIngredientForm = this.formBuilder.group({
+      ingredientselection: ['', Validators.required]
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/recipes/';
   }
 
-// convenience getter for easy access to form fields
+  // convenience getter for easy access to form fields
   get f() {
-    return this.selectForm.controls;
+    return this.selectIngredientForm.controls;
   }
-
 
   onSubmit() {
 
     // stop here if form is invalid
-    if (this.selectForm.invalid) {
+    if (this.selectIngredientForm.invalid) {
       return;
     } else {
       this.issubmitted = true;
@@ -60,18 +57,18 @@ export class SelectMonthComponent implements OnInit {
 
     }
 
-    let searchItem = this.f.monthselection.value
+    //let item = this.f.monthselection.value
 
-    this.router.navigate([this.returnUrl, searchItem]);
+    this.loading = true;
+    this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
 
-
-    /*this.loading = true;
-    this.passmonthService.searchmonth(this.f.monthselection.value)
+    /*this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
       .pipe(first())
       .subscribe(
         data => {
           console.log(data);
-          this.router.navigate([this.returnUrl, searchItem]);
+          console.log(this.f.ingredientselection)
+          this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
         },
         error => {
           this.alertService.error(error);
@@ -80,11 +77,7 @@ export class SelectMonthComponent implements OnInit {
 
     //console.log(JSON.parse(localStorage.getItem('currentUser')));
     //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
-  }
-  logout() {
-    this.authenticationService.logout();
   }*/
-
 
   }
 }

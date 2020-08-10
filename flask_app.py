@@ -81,7 +81,6 @@ def register():
 
 # Authentication endpoint
 @app.route('/seasonal_recipes/api/v1.0/auth', methods=['POST'])
-
 def authent():
     
     connection = psycopg2.connect(
@@ -137,10 +136,10 @@ def authent():
             cursor.close()
             connection.close()
             print("PostgreSQL connection is now closed")
-'''
-# Get recipes endpoint
-@app.route('/seasonal_recipes/api/v1.0/<vegetable>', methods=['GET'])
 
+
+# Search Ingredient endpoint
+@app.route('/seasonal_recipes/api/v1.0/ingredientsearch/<vegetable>', methods=['GET'])
 def get_recipes(vegetable):
     
     connection = psycopg2.connect(
@@ -159,6 +158,7 @@ def get_recipes(vegetable):
     recipes_list = []  
     data = cursor.fetchall()
 
+
     for row in data:
         title = row[1]
         ingredients = row[2]
@@ -171,17 +171,32 @@ def get_recipes(vegetable):
         'image_url': ''
         }
         recipes_list.append(recipe)
+    #print(recipes_list)
 
     for recipe in recipes_list:
         cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
         recipe['image_url'] = cursor.fetchall()
-    
+
+    # Update Searchitem table in db
+    cursor.execute("SELECT * from searchitems WHERE title LIKE '%" + vegetable + "%'")
+    found = cursor.fetchone()
+    print(found)
+
+    if not found:
+        cursor.execute("INSERT INTO searchitems (title, count) VALUES (%s, 1)", vegetable)
+
+    else:
+        cursor.execute("UPDATE searchitems SET count = count + 1 WHERE title LIKE '%" + vegetable + "%' ")
+
+    connection.commit()
 
     return jsonify(recipes_list), 200
-'''
+
+
+
+
 # Get recipes with veg that is in season for requested month   
 @app.route('/seasonal_recipes/api/v1.0/<month>', methods=['GET'])
-
 def get_in_season(month):
     
     connection = psycopg2.connect(
@@ -198,12 +213,6 @@ def get_in_season(month):
 
     recipes_list = []
 
-    
-
-
-
-
-    
     if month == "January":
         # search for all the recipes containing veg in season in Jan
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -426,8 +435,6 @@ def get_in_season(month):
                 recipe['image_url'] = cursor.fetchall()
     else:
         recipes_list = ["invalid month"]
-
-    
 
     return jsonify(recipes_list), 200
 

@@ -6,16 +6,17 @@ import {DisplayRecipesComponent} from "./display-recipes/display-recipes.compone
 import {RecipeComponent} from './recipe/recipe.component';
 import {Displaytop5Component} from "./displaytop5/displaytop5.component";
 import {Report1Component} from "./reports/report1.component";
-
+import {IngredientSearchComponent} from "./ingredient-search/ingredient-search.component";
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'select', component: SelectMonthComponent },
-  { path: 'recipes/:month', component: DisplayRecipesComponent },
+  { path: 'recipes/:item', component: DisplayRecipesComponent },
   { path: 'recipe', component: RecipeComponent },
-  { path: 'reports', component: Report1Component}
+  { path: 'reports', component: Report1Component},
+  { path: 'searchingredient', component: IngredientSearchComponent}
 
 ];
 
