@@ -12,6 +12,7 @@ import {IngredientSearchComponent} from "./ingredient-search/ingredient-search.c
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: LoginComponent },
   { path: 'select', component: SelectMonthComponent },
   { path: 'recipes/:item', component: DisplayRecipesComponent },
   { path: 'recipe', component: RecipeComponent },

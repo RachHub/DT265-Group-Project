@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 //import 'rxjs/add/operator/toPromise';
 
-import { User } from 'src/app/_models/user';
+import { User } from '../_models/user';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -22,6 +22,16 @@ export class AuthenticationService {
 
   login(username, password) {
     return this.http.post<any>('http://127.0.0.1:5000/seasonal_recipes/api/v1.0/auth', { username, password })
+      .pipe(map(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }));
+  }
+
+  register(register_username, register_pw, email) {
+    return this.http.post<any>('http://127.0.0.1:5000/seasonal_recipes/api/v1.0/register', { register_username, register_pw, email })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
