@@ -7,6 +7,7 @@ import {RecipeComponent} from './recipe/recipe.component';
 import {Displaytop5Component} from "./displaytop5/displaytop5.component";
 import {Report1Component} from "./reports/report1.component";
 import {IngredientSearchComponent} from "./ingredient-search/ingredient-search.component";
+import {MapComponent} from "./map/map.component";
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'recipes/:item', component: DisplayRecipesComponent },
   { path: 'recipe', component: RecipeComponent },
   { path: 'reports', component: Report1Component},
-  { path: 'searchingredient', component: IngredientSearchComponent}
+  { path: 'searchingredient', component: IngredientSearchComponent},
+  { path: 'map', component: MapComponent}
 
 ];
 

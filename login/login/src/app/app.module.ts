@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { Report3Component } from './popularsearch/report3.component';
 import { Report4Component } from './report4/report4.component';
 import { Displaytop5Component } from './displaytop5/displaytop5.component';
 import { IngredientSearchComponent } from './ingredient-search/ingredient-search.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -40,6 +43,7 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
     Report4Component,
     Displaytop5Component,
     IngredientSearchComponent,
+    MapComponent,
 
 
 
@@ -50,7 +54,9 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    GoogleMapsModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyAB8gz4YNb2nnqxxaZbxylKyDG7A-oUJeQ'})
   ],
   providers: [ AuthenticationService, ReportoneService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, ],
