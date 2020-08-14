@@ -6,6 +6,7 @@ import {Recipes} from "../recipes";
 import {PassSearchitemService} from "../_services/pass-searchitem.service";
 import {AuthenticationService} from "../_services/authentication.service";
 import {AlertService} from "../_services/alert.service";
+import {FormService} from "../_services/formservice.service";
 
 
 @Component({
@@ -20,14 +21,14 @@ export class IngredientSearchComponent implements OnInit {
   returnUrl: string;
   recipes: Recipes[];
 
-
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private passsearchitemservice: PassSearchitemService,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private formService: FormService
   ) {
   }
 
@@ -37,6 +38,10 @@ export class IngredientSearchComponent implements OnInit {
     });
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/recipes/';
+
+    this.formService.onFormSubmitted.subscribe( (formData: any ) => {
+      this.onSubmit();
+    });
   }
 
   // convenience getter for easy access to form fields
@@ -51,16 +56,17 @@ export class IngredientSearchComponent implements OnInit {
       return;
     } else {
       this.issubmitted = true;
-
       // reset alerts on submit
       this.alertService.clear();
 
     }
+    this.loading = true;
+
+    this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
 
     //let item = this.f.monthselection.value
 
-    this.loading = true;
-    this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
+
 
     /*this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
       .pipe(first())

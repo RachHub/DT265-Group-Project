@@ -15,6 +15,7 @@ import { ErrorInterceptor } from './_helpers/error.interceptor';
 import { AlertComponent } from './_components/alert.component';
 import { SelectMonthComponent } from './select-month/select-month.component';
 import { DisplayRecipesComponent } from './display-recipes/display-recipes.component';
+import { FormService} from './_services/formservice.service';
 
 import { RecipeComponent } from './recipe/recipe.component';
 
@@ -58,7 +59,7 @@ import { MapComponent } from './map/map.component';
     GoogleMapsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyAB8gz4YNb2nnqxxaZbxylKyDG7A-oUJeQ'})
   ],
-  providers: [ AuthenticationService, ReportoneService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  providers: [ AuthenticationService, FormService, ReportoneService, { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }, ],
   bootstrap: [AppComponent]
 })

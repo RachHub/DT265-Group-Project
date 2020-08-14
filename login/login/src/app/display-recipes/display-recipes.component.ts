@@ -5,6 +5,7 @@ import {PassSearchitemService} from "../_services/pass-searchitem.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Recipes} from "../recipes";
 import {SelectRecipeService} from "../_services/select-recipe.service"
+import {FormService} from "../_services/formservice.service";
 
 
 @Component({
@@ -15,14 +16,18 @@ import {SelectRecipeService} from "../_services/select-recipe.service"
 export class DisplayRecipesComponent implements OnInit {
   recipes: Recipes[];
   recipe:string;
+  private searchitem:string;
 
   constructor(private passsearchitemService: PassSearchitemService,
               private selectRecipeService: SelectRecipeService,
               private router: Router,
-              private route: ActivatedRoute,) { }
+              private route: ActivatedRoute,
+              private formService: FormService) { }
 
   ngOnInit() {
-    this.passsearchitemService.searchitem(this.route.snapshot.paramMap.get('item'))
+    this.route.params.subscribe(params => {
+      this.searchitem = params['item']
+      this.passsearchitemService.searchitem(this.searchitem)
       .pipe(first())
       .subscribe(
         data => {
@@ -34,15 +39,16 @@ export class DisplayRecipesComponent implements OnInit {
           //this.alertService.error(error);
           //this.loading = false;
         });
+    });
 
-      this.selectRecipeService.currentRecipe.subscribe(recipe => this.recipe = recipe)
+      this.selectRecipeService.currentRecipe.subscribe(recipe => this.recipe = recipe);
 
   }
 
   onClick(recipe){
     // Change data in recipe service to the recipe that has been clicked on
 
-    this.selectRecipeService.changeRecipe(recipe)
+    this.selectRecipeService.changeRecipe(recipe);
   }
 
 }
