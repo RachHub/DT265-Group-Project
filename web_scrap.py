@@ -42,7 +42,7 @@ cur = connection.cursor()
 for idx, div in enumerate(mydivs):
     a = div.find("a", {"id": re.compile("gtm_recipe_subcat")})
     link = "https://www.jamieoliver.com" + a['href']
-    print(link)
+    print("* Scrapping:", link)
     html_text = requests.get(link).text
     soup = BeautifulSoup(html_text, 'html.parser')
     div_ing = soup.find("div", {"class": "recipe-ingredients"})
@@ -68,21 +68,23 @@ for idx, div in enumerate(mydivs):
         method.append("{}. {}".format(idx + 1, step.get_text()))
     method = " ".join(method)
 
-    url_picture = soup.select("div.hero-wrapper > picture > img")[0]
-    url_picture = 'http:'+ url_picture.get('src','')
-    print(url_picture)
+    url_picture = soup.select("div.hero-wrapper > img")[0]
+    picture = url_picture.get('src', '')
+    if picture.startswith('//'):
+        picture = 'https:' + picture
+
+    print(picture)
 
 # allow to get out of script
 #     import sys
 #     sys.exit(0)
 
-
     if len(method) > 0:
         cur.execute(""" INSERT INTO recipes (title , method, url_pictures) VALUES (%s , %s , %s)""",
-                    (title, method, url_picture))
+                    (title, method, picture))
 
         for ingredient in ingredients:
-            results = cur.execute ("select count(*) from  ingredients where ing_name = %s", (ingredient,))
+            results = cur.execute("select count(*) from  ingredients where ing_name = %s", (ingredient,))
             # if len(results) == 0 :
             if results is None:
                 cur.execute(""" INSERT INTO ingredients (ing_name) VALUES (%s )""",
