@@ -50,7 +50,7 @@ export class IngredientSearchComponent implements OnInit {
   }
 
   onSubmit() {
-
+    console.log('onsubmit is being triggered')
     // stop here if form is invalid
     if (this.selectIngredientForm.invalid) {
       return;
@@ -61,14 +61,14 @@ export class IngredientSearchComponent implements OnInit {
 
     }
     this.loading = true;
+    let item = this.f.ingredientselection.value
+    this.router.navigate([this.returnUrl, item]);
 
-    this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
-
-    //let item = this.f.monthselection.value
+    
 
 
-
-    /*this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
+    /*
+    this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -80,10 +80,10 @@ export class IngredientSearchComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         });
-
+*/
     //console.log(JSON.parse(localStorage.getItem('currentUser')));
     //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
-  }*/
+  
 
   }
 }
