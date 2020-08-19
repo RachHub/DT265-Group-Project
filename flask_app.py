@@ -42,8 +42,8 @@ def register():
     try:   
         # Get new username, password and email from client request
         client_request = request.get_json()
-        username = client_request['username']  
-        client_pw = client_request['password']
+        username = client_request['register_username']  
+        client_pw = client_request['register_pw']
         client_email = client_request['email']
 
         cursor = connection.cursor()
@@ -66,17 +66,13 @@ def register():
         connection.commit() 
 
         success_object = {"registration": "success"}
-
+        cursor.close()
         # Return success message to client
         return jsonify(success_object), 200
     except (Exception, psycopg2.Error) as error:
         print("Error while fetching data from PostgreSQL", error)
 
-    finally:
-        if(connection):
-            cursor.close()
-            connection.close()
-            print("PostgreSQL connection is now closed")
+    
     
 
 # Authentication endpoint
@@ -217,24 +213,24 @@ def get_in_season(month):
 
     if month == "January":
         # search for all the recipes containing veg in season in Jan
-        cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
+        cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
 
         for row in data:
-            title = row[1]
-            ingredients = row[2]
-            method = row[3]
+            title = row[2]
+            ingredients = row[3]
+            method = row[1]
+            image_url = row[4]
             recipe = {
+            
             'title': title,
             'ingredients': ingredients,
             'method': method,
-            'image_url': ''
+            'image_url': image_url
             }
             recipes_list.append(recipe)
 
-        for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+        
     elif month == "February":
         # search for all the recipes containing veg in season in Feb
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -271,8 +267,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "April":
         # search for all the recipes containing veg in season in April
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -289,8 +285,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "May":
         # search for all the recipes containing veg in season in May
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -307,8 +303,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "June":
         # search for all the recipes containing veg in season in June
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -325,8 +321,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "July":
         # search for all the recipes containing veg in season in July
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -343,8 +339,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "August":
         # search for all the recipes containing veg in season in August
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -361,8 +357,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "September":
         # search for all the recipes containing veg in season in September
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -379,8 +375,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "October":
         # search for all the recipes containing veg in season in October
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -397,8 +393,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "November":
         # search for all the recipes containing veg in season in November
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -415,8 +411,8 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     elif month == "December":
         # search for all the recipes containing veg in season in December
         cursor.execute("SELECT * from test_recipe_data WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
@@ -433,13 +429,10 @@ def get_in_season(month):
             }
             recipes_list.append(recipe)
         for recipe in recipes_list:
-            cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
-            recipe['image_url'] = cursor.fetchall()
-
+                cursor.execute("SELECT url_pictures FROM recipes WHERE title=%s", (recipe['title'],))
+                recipe['image_url'] = cursor.fetchall()
     else:
         recipes_list = ["invalid month"]
-
-    print(recipes_list)
 
     return jsonify(recipes_list), 200
 
