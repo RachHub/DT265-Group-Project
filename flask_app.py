@@ -156,11 +156,13 @@ def get_recipes(vegetable):
 
 
     for row in data:
+        recipe_id = row[0]
         title = row[2]
         ingredients = row[3]
         method = row[1]
         image_url = row[4]
         recipe = {
+        'recipe_id': recipe_id,
         'vegetable': vegetable,
         'title': title,
         'ingredients': ingredients,
@@ -214,12 +216,14 @@ def get_in_season(month):
         data = cursor.fetchall()
 
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -234,12 +238,14 @@ def get_in_season(month):
         data = cursor.fetchall()
 
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -253,12 +259,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -271,12 +279,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -289,12 +299,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -307,12 +319,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -325,12 +339,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -343,12 +359,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -361,12 +379,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -379,12 +399,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -397,12 +419,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -415,12 +439,14 @@ def get_in_season(month):
         cursor.execute("SELECT * from recipes_new WHERE title LIKE '%%broccoli%%' OR title Like '%%cabbage%%' OR title Like '%%kale%%' OR title Like '%%celeriac%%' OR title Like '%%beetroot%%' OR title Like '%%mushroom%%' OR title Like '%%parsnip%%' OR title Like '%%leek%%' OR title Like '%%cauliflower%%' OR title Like '%%carrot%%' OR title Like '%%celery%%' OR title Like '%%pak choi%%' OR title Like '%%turnip%%' OR title Like '%%potato%%'")
         data = cursor.fetchall()
         for row in data:
+            recipe_id = row[0]
             title = row[2]
             ingredients = row[3]
             method = row[1]
             image_url = row[4]
             recipe = {
             
+            'recipe_id': recipe_id,
             'title': title,
             'ingredients': ingredients,
             'method': method,
@@ -504,6 +530,91 @@ def get_mostsearched():
 
     return jsonify({'data': data, 'labels': labels}), 200
 
+# Add favourite endpoint
+@app.route('/seasonal_recipes/api/v1.0/add_favourite', methods=['POST'])
+
+def user_favourites():
+    
+    # Connect to db
+    connection = psycopg2.connect(
+        user = "tuqurqnlmabgfb",
+        password = "f22e3198e9b9a293bfbdef4877290eb420dc2ced9133d1ce303b375f0989a398",
+        host = "ec2-54-246-85-151.eu-west-1.compute.amazonaws.com",
+        port = "5432",
+        database = "d104oreqrestf1",
+        sslmode="require"
+    )
+        
+     
+    client_request = request.get_json()
+    username = client_request['username']
+    print(username)
+    recipe_id = client_request['recipe_id']
+    print(recipe_id)  
+    # Insert new user favourite into the user_favourites table        
+    cursor = connection.cursor()
+    cursor.execute("INSERT INTO user_favourites(user_id, recipe_id) VALUES(%s, %s)", (username, recipe_id,))
+    # Insert record of favourite action into favourites table for reporting
+    cursor.execute("INSERT INTO favourites(recipe_id) VALUES(%s)", (recipe_id,))
+    # Commit change to db   
+    connection.commit() 
+
+    success_object = {"favourite": "success"}
+    cursor.close()
+    # Return success message to client
+    return jsonify(success_object), 200
+
+# Get favourites for user endpoint
+@app.route('/seasonal_recipes/api/v1.0/recipes/favourites', methods=['POST'])
+
+def get_user_favourites():
+    
+    # Connect to db
+    connection = psycopg2.connect(
+        user = "tuqurqnlmabgfb",
+        password = "f22e3198e9b9a293bfbdef4877290eb420dc2ced9133d1ce303b375f0989a398",
+        host = "ec2-54-246-85-151.eu-west-1.compute.amazonaws.com",
+        port = "5432",
+        database = "d104oreqrestf1",
+        sslmode="require"
+    )
+        
+     
+    client_request = request.get_json()
+    username = client_request['username']
+    
+    # Get user favourites from user_favourites table        
+    cursor = connection.cursor()
+    cursor.execute("SELECT recipe_id FROM user_favourites WHERE user_id=%s", (username,))
+    
+    favourites = cursor.fetchall()
+
+    recipes_list = []
+
+    for favourite_id in favourites:
+        # Get all the recipes in the user's favourites list
+        cursor.execute("SELECT * from recipes_new WHERE recipe_id=%s", (favourite_id,))
+        data = cursor.fetchall()
+        for row in data:
+            title = row[2]
+            ingredients = row[3]
+            method = row[1]
+            image_url = row[4]
+            recipe = {
+                
+            'title': title,
+            'ingredients': ingredients,
+            'method': method,
+            'image_url': image_url
+            }
+            recipes_list.append(recipe)
+        
+    
+    cursor.close()
+    
+    # Return user's favourite recipes to client
+    return jsonify(recipes_list), 200
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

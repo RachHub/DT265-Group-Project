@@ -16,6 +16,7 @@ import {FormService} from "../_services/formservice.service";
 export class DisplayRecipesComponent implements OnInit {
   recipes: Recipes[];
   recipe:string;
+  returnUrl: string;
   private searchitem:string;
 
   constructor(private passsearchitemService: PassSearchitemService,
@@ -49,6 +50,12 @@ export class DisplayRecipesComponent implements OnInit {
     // Change data in recipe service to the recipe that has been clicked on
 
     this.selectRecipeService.changeRecipe(recipe);
+  }
+
+  onClickFavourites(){
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/recipes/';
+    let item = "favourites";
+    this.router.navigate([this.returnUrl, item]);
   }
 
 }

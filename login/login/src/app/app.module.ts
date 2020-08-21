@@ -31,6 +31,7 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
 import { MapComponent } from './map/map.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { MapComponent } from './map/map.component';
     Displaytop5Component,
     IngredientSearchComponent,
     MapComponent,
+    
 
 
 

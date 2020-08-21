@@ -71,8 +71,11 @@ export class LoginComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         });
-    //console.log(JSON.parse(localStorage.getItem('currentUser')));
-    //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
+
+    //console.log(this.f.username.value);
+    localStorage.setItem('currentUser', this.f.username.value);
+    console.log(localStorage.getItem('currentUser'));
+    
   }
 
   onSubmitRegister() {
@@ -97,7 +100,9 @@ export class LoginComponent implements OnInit {
           this.alertService.error(error);
           this.loading = false;
         });
-    //console.log(JSON.parse(localStorage.getItem('currentUser')));
+
+    localStorage.setItem('currentUser', this.f.register_username.value);
+    //console.log(JSON.parse(localStorage.getItem('currentUser')).register_username);
     //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
 }
 
