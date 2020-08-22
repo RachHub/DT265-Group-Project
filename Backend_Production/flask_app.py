@@ -28,7 +28,7 @@ jwt = JWTManager(app)
 # This tells Heroku to render the index.html file of the built Angular app at the root of the Flask API
 @app.route('/')
 def index():
-    return app.send_static_file('dist/login/index.html')
+    return app.send_static_file('index.html')
 
 # Registration endpoint
 @app.route('/seasonal_recipes/api/v1.0/register', methods=['POST'])
