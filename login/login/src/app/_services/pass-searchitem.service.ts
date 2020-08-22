@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
 export class PassSearchitemService {
 
   constructor(private http: HttpClient) { }
-  projectUrl2 = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/ingredientsearch/';
-  projectUrl = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/';
-  projectUrl3 = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/recipes/';
+  projectUrl2 = 'https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/ingredientsearch/';
+  projectUrl = 'https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/';
+  projectUrl3 = 'https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/recipes/';
   
 
   searchitem(item) {

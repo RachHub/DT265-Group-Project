@@ -21,7 +21,7 @@ export class AuthenticationService {
   }
 
   login(username, password) {
-    return this.http.post<any>('http://127.0.0.1:5000/seasonal_recipes/api/v1.0/auth', { username, password })
+    return this.http.post<any>('https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/auth', { username, password })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
@@ -33,7 +33,7 @@ export class AuthenticationService {
   }
 
   register(register_username, register_pw, email) {
-    return this.http.post<any>('http://127.0.0.1:5000/seasonal_recipes/api/v1.0/register', { register_username, register_pw, email })
+    return this.http.post<any>('https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/register', { register_username, register_pw, email })
       .pipe(map(user => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));

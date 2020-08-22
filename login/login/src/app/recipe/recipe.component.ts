@@ -23,12 +23,12 @@ export class RecipeComponent implements OnInit {
   }
 
   onClick() {
-    console.log('add favourite onclick is being triggered');
+    
     let recipe_id = this.recipe['recipe_id'];
     const headers: HttpHeaders = new HttpHeaders({
       'ContentType': 'application/json'
     });
-    let favouritesUrl = 'http://127.0.0.1:5000/seasonal_recipes/api/v1.0/add_favourite';
+    let favouritesUrl = 'https://seasonal-recipes.herokuapp.com/seasonal_recipes/api/v1.0/add_favourite';
     
     //Add favourite to current user's favourites list
     this.http.post<any>(favouritesUrl, {'username': localStorage.getItem('current_username'), 'recipe_id': recipe_id}, {headers: headers}).subscribe();

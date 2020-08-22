@@ -50,7 +50,7 @@ export class IngredientSearchComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onsubmit is being triggered')
+    
     // stop here if form is invalid
     if (this.selectIngredientForm.invalid) {
       return;
@@ -60,7 +60,7 @@ export class IngredientSearchComponent implements OnInit {
       this.alertService.clear();
 
     }
-    this.loading = true;
+    
     let item = this.f.ingredientselection.value
     this.router.navigate([this.returnUrl, item]);
 
@@ -68,6 +68,7 @@ export class IngredientSearchComponent implements OnInit {
 
 
     /*
+    this.loading = true;
     this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
       .pipe(first())
       .subscribe(
