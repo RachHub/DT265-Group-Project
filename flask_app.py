@@ -16,8 +16,8 @@ from flask_jwt import current_identity
 import base64
 import json
 
-# This part tells Heroku to deploy the static files in the 'build' folder at the root URI. This is where the Angular files are.
-app = Flask(__name__, static_folder='./dist', static_url_path='/')
+# This part tells Heroku to deploy the static files in the 'dist' folder at the root URI. This is where the Angular files are.
+app = Flask(__name__, static_folder='./sr_app', static_url_path='/')
 
 CORS(app, resources={r"*": {"origins": "*"}})
 
@@ -28,7 +28,7 @@ jwt = JWTManager(app)
 # This tells Heroku to render the index.html file of the built Angular app at the root of the Flask API
 @app.route('/')
 def index():
-    return app.send_static_file('./dist/login/index.html')
+    return app.send_static_file('./sr_app/index.html')
 
 # Registration endpoint
 @app.route('/seasonal_recipes/api/v1.0/register', methods=['POST'])
