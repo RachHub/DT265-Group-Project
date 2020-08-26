@@ -58,4 +58,11 @@ export class DisplayRecipesComponent implements OnInit {
     this.router.navigate([this.returnUrl, item]);
   }
 
+  onClickAbout(){
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/recipes/';
+    let item = "about";
+    this.router.navigate([this.returnUrl, item]);
+  }
+
+
 }

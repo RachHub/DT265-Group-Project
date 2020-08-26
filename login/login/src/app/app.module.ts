@@ -31,6 +31,7 @@ import { IngredientSearchComponent } from './ingredient-search/ingredient-search
 import { MapComponent } from './map/map.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing/landing.component';
+import { AboutComponent } from './about/about.component';
 
 
 
@@ -50,6 +51,7 @@ import { LandingComponent } from './landing/landing.component';
     MapComponent,
     RegisterComponent,
     LandingComponent,
+    AboutComponent,
     
 
 

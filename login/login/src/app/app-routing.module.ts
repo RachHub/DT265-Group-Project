@@ -10,6 +10,7 @@ import {IngredientSearchComponent} from "./ingredient-search/ingredient-search.c
 import {MapComponent} from "./map/map.component";
 import {RegisterComponent} from "./register/register.component";
 import {LandingComponent} from "./landing/landing.component";
+import {AboutComponent} from "./about/about.component";
 
 
 const routes: Routes = [
@@ -23,9 +24,8 @@ const routes: Routes = [
   { path: 'searchingredient', component: IngredientSearchComponent},
   { path: 'map', component: MapComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
-
-
+  { path: 'register', component: RegisterComponent},
+  { path: 'about', component: AboutComponent}
 ];
 
 @NgModule({
