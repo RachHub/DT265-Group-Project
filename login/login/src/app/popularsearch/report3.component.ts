@@ -13,16 +13,7 @@ import {Label} from "ng2-charts";
 })
 export class Report3Component implements OnInit {
 
-  //private colors = [
-    //{ backgroundColor:"red" },
-    //{
-      //backgroundColor:[
-        //"green",
-        //"red",
-       // "yellow",
-        //]
-   // }
-  //];
+  
   popularsearchData: ChartDataSets[] = [
     {
       data: [],
@@ -33,8 +24,7 @@ export class Report3Component implements OnInit {
 
   searchitems: any[];
   pieChartLabels = [];
-  //data: any;
-  //public pieChartData = [20, 90, 90, 30];
+  
   public pieChartType = 'pie';
 
   constructor(private popularsearch: PopularsearchService,
@@ -49,9 +39,7 @@ export class Report3Component implements OnInit {
         this.popularsearchData = this.searchitems["data"];
         console.log(this.searchitems);
         });
-        //error => {
-          //this.alertService.error(error);
-         // this.loading = false;
+        
 
     for (let i = 0; i < this.searchitems.length; i++) {
       this.colors.push('#' + Math.floor(Math.random() * 16777215).toString(16));

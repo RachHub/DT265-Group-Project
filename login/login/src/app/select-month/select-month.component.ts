@@ -65,26 +65,7 @@ export class SelectMonthComponent implements OnInit {
     this.router.navigate([this.returnUrl, searchItem]);
 
 
-    /*this.loading = true;
-    this.passmonthService.searchmonth(this.f.monthselection.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          this.router.navigate([this.returnUrl, searchItem]);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-
-    //console.log(JSON.parse(localStorage.getItem('currentUser')));
-    //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
-  }
-  logout() {
-    this.authenticationService.logout();
-  }*/
-
+    
 
   }
 }

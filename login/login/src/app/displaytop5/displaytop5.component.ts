@@ -24,8 +24,7 @@ export class Displaytop5Component implements OnInit {
           this.favorites = data;
         },
         error => {
-          //this.alertService.error(error);
-          //this.loading = false;
+          
         });
   }
 

@@ -63,8 +63,7 @@ export class RegisterComponent implements OnInit {
         });
 
     localStorage.setItem('currentUser', this.rf.register_username.value);
-    //console.log(JSON.parse(localStorage.getItem('currentUser')).register_username);
-    //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
+    
 }
 
 

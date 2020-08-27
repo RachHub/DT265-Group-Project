@@ -63,27 +63,6 @@ export class IngredientSearchComponent implements OnInit {
     
     let item = this.f.ingredientselection.value
     this.router.navigate([this.returnUrl, item]);
-
-    
-
-
-    /*
-    this.loading = true;
-    this.passsearchitemservice.searchitem(this.f.ingredientselection.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          console.log(data);
-          console.log(this.f.ingredientselection)
-          this.router.navigate([this.returnUrl, this.f.ingredientselection.value]);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
-        });
-*/
-    //console.log(JSON.parse(localStorage.getItem('currentUser')));
-    //console.log(JSON.parse(localStorage.getItem('currentUser')).email);
   
 
   }

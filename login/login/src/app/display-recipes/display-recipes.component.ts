@@ -34,11 +34,10 @@ export class DisplayRecipesComponent implements OnInit {
         data => {
           this.recipes = data;
           console.log(data);
-          //this.router.navigate([this.returnUrl]);
+          
         },
         error => {
-          //this.alertService.error(error);
-          //this.loading = false;
+          
         });
     });
 
