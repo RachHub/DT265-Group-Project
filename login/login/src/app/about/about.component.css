@@ -22,6 +22,9 @@ html, body {
 .text {
     position: relative;
     top: 30%;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-size: larger;
 }
 
 h1 {
