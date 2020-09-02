@@ -16,7 +16,7 @@ from flask_jwt import current_identity
 import base64
 import json
 
-# This part tells Heroku to deploy the static files in the 'dist' folder at the root URI. This is where the Angular files are.
+# This part tells Heroku to deploy the static files in the 'static' folder at the root URI. This is where the Angular files are.
 app = Flask(__name__, static_folder='./static', static_url_path='/')
 
 CORS(app, resources={r"*": {"origins": "*"}})
