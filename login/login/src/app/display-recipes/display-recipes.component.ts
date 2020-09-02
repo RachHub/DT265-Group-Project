@@ -57,9 +57,7 @@ export class DisplayRecipesComponent implements OnInit {
     this.router.navigate([this.returnUrl, item]);
   }
 
-  readLocalStorageValue() {
-    return localStorage.getItem('current_username');
-  }
+  
 
 
 
